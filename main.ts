@@ -26,20 +26,9 @@ input.onButtonPressed(Button.A, function () {
     } else {
         started = 1
         basic.showString("Hello!")
-        basic.showString("Password Please")
         expired = 15
-        while (!(expired == 0)) {
-            basic.pause(1000)
-            expired += -1
-        }
-        if (expired == 0) {
-            reset(true)
-        }
     }
 })
-function doSomething (num: number) {
-	
-}
 function get_var_name () {
     if (!(_1 == 0)) {
         return 1
@@ -67,7 +56,6 @@ input.onButtonPressed(Button.B, function () {
         convert_type(get_var_name(), 2)
     }
 })
-// reset
 input.onGesture(Gesture.Shake, function () {
 	
 })
@@ -82,6 +70,7 @@ function reset (all_turefalse: boolean) {
         _7 = 0
     }
 }
+let incorrects = 0
 let expired = 0
 let _7 = 0
 let _6 = 0
@@ -93,7 +82,50 @@ let _1 = 0
 let started = 0
 started = 0
 basic.forever(function () {
-    if (_7 == 1 || (_7 == 2 || _7 == 3)) {
-    	
+    while (!(expired == 0)) {
+        basic.pause(1000)
+        expired += -1
+        if (expired == 0) {
+            reset(true)
+        }
+    }
+})
+/**
+ * Note password is default "aabbaac
+ */
+basic.forever(function () {
+    if (_7 == 1 || _7 == 2 || _7 == 3) {
+        if (_1 == 1) {
+            if (_2 == 1) {
+                if (_3 == 2) {
+                    if (_4 == 2) {
+                        if (_5 == 1) {
+                            if (_6 == 1) {
+                                if (_7 == 3) {
+                                    basic.showLeds(`
+                                        . . . . .
+                                        . . . . #
+                                        . . . # .
+                                        # . # . .
+                                        . # . . .
+                                        `)
+                                    basic.showString("Correct")
+                                    incorrects = 0
+                                } else {
+                                    basic.showLeds(`
+                                        # . . . #
+                                        . # . # .
+                                        . . # . .
+                                        . # . # .
+                                        # . . . #
+                                        `)
+                                    basic.showString("Wrong/Timed Out")
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 })
